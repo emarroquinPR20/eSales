@@ -1,0 +1,11 @@
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.exe
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.deps.json
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.runtimeconfig.json
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.runtimeconfig.dev.json
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.dll
+C:\com\libPiky\bin\Debug\netcoreapp3.1\libPiky.pdb
+C:\com\libPiky\obj\Debug\netcoreapp3.1\libPiky.csprojAssemblyReference.cache
+C:\com\libPiky\obj\Debug\netcoreapp3.1\libPiky.AssemblyInfoInputs.cache
+C:\com\libPiky\obj\Debug\netcoreapp3.1\libPiky.AssemblyInfo.cs
+C:\com\libPiky\obj\Debug\netcoreapp3.1\libPiky.dll
+C:\com\libPiky\obj\Debug\netcoreapp3.1\libPiky.pdb
