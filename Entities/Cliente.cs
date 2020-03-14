@@ -23,5 +23,10 @@ namespace libPiky.Entities
             Correo = correo;
             Telefono = telefono;
         }
+        public override string ToString()
+        {
+            return $"{{\"Id\": \"{this.IdCliente}\", \"Nombre\": \"{this.Nombre}\", \"Documento\": \"{this.Documento}\", \"Dirección\": \"{this.Direccion}\", \"Correo\": \"{this.Correo}\", \"Telefóno\": \"{this.Telefono}\"}}";
+        }
+
     }
 }

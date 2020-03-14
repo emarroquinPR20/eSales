@@ -74,6 +74,7 @@ namespace libPiky.Menu
                     WriteLine("2. Modificar ");
                     WriteLine("3. Eliminar ");
                     WriteLine("4. Consultar ");
+                    WriteLine("5. Listar ")
                     WriteLine("Ingrese opción");
                     string opcionElegida = ReadLine();
                     opcion = Convert.ToByte(opcionElegida);
@@ -96,6 +97,9 @@ namespace libPiky.Menu
                         case 4:
                             ConsultarObjeto(tipoObjeto);
                             PrecionarEnter();
+                            break;
+                        case 5:
+                            ListarObjeto(tipoObjeto);
                             break;
                         default:
                             WriteLine("No existe la Opción");
@@ -273,37 +277,73 @@ namespace libPiky.Menu
             {
                 object objeto = new Proveedor();
                 Proveedor cProveedor = (Proveedor)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cProveedor.IdProveedor} {cProveedor.Nombre}");
+                WriteLine(cProveedor.ToString());
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
                 object objeto = new Articulo();
                 Articulo cArticulo = (Articulo)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cArticulo.IdArticulo} {cArticulo.Nombre}");
+                WriteLine(cArticulo.ToString());
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
                 object objeto = new Cliente();
                 Cliente cCliente = (Cliente)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cCliente.IdCliente} {cCliente.Nombre}");
+                WriteLine(cCliente.ToString());
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
                 object objeto = new Entrada();
                 Entrada cEntrada = (Entrada)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cEntrada.IdEntrada} {cEntrada.Fecha}");
+                WriteLine(cEntrada.ToString());
             }
             else if (tipoObjeto.Equals("Salida"))
             {
                 object objeto = new Salida();
                 Salida cSalida = (Salida)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cSalida.IdSalida} {cSalida.Fecha}");
+                WriteLine(cSalida.ToString());
             }
             else if (tipoObjeto.Equals("Venta"))
             {
                 object objeto = new Venta();
                 Venta cVenta = (Venta)controller.Consultar(objeto,ideliminar);
-                WriteLine($"{tipoObjeto} : {cVenta.IdVenta} {cVenta.Fecha}");
+                WriteLine(cVenta.ToString());
+            }
+        }
+        public void ListarObjeto(string tipoObjeto)
+        {
+            Clear();
+            WriteTiTle("Administración Libreria ");
+            WriteLine($"Listado de {tipoObjeto} :");
+            if (tipoObjeto.Equals("Proveedor"))
+            {
+                object objeto = new Proveedor();
+                controller.Listar(objeto);
+            }
+            else if (tipoObjeto.Equals("Articulo"))
+            {
+                object objeto = new Articulo();
+                controller.Listar(objeto);
+            }
+            else if (tipoObjeto.Equals("Cliente"))
+            {
+                object objeto = new Cliente();
+                controller.Listar(objeto);
+            }
+            else if (tipoObjeto.Equals("Entrada"))
+            {
+                object objeto = new Entrada();
+                controller.Listar(objeto);
+            }
+            else if (tipoObjeto.Equals("Salida"))
+            {
+                object objeto = new Salida();
+                controller.Listar(objeto);
+            }
+            else if (tipoObjeto.Equals("Venta"))
+            {
+                object objeto = new Venta();
+                controller.Listar(objeto);
             }
         }
     }

@@ -24,6 +24,10 @@ namespace libPiky.Entities
             Stock = stock;
         }
 
+        public override string ToString()
+        {
+            return $"{{\"Id\": \"{this.IdArticulo}\", \"Nombre\": \"{this.Nombre}\", \"Marca\": \"{this.Marca}\", \"Referencia\": \"{this.Referencia}\", \"Id Proveedor\": \"{this.IdProveedor}\", \"Stock\": \"{this.Stock}\"}}";
+        }
 
     }
 }

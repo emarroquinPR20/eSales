@@ -24,6 +24,10 @@ namespace libPiky.Entities
             ValorUnidad = valorUnidad;
             IdCliente = idCliente;
         }
+        public override string ToString()
+        {
+            return $"{{\"Id\": \"{this.IdVenta}\", \"Documento\": \"{this.Documento}\", \"Id Articulo\": \"{this.IdArticulo}\", \"Fecha\": \"{this.Fecha}\", \"Cantidad\": \"{this.Cantidad}\",\"Valor Unidad\": \"{this.ValorUnidad}\", \"Id Cliente\": \"{this.IdCliente}\"}}";
+        }
 
     }
 }

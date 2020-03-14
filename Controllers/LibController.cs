@@ -1,4 +1,5 @@
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using libPiky.Entities;
 using libPiky.Interfaces;
@@ -142,6 +143,52 @@ namespace libPiky.Controllers
                 }
             }
             return resultado;
+        }
+        public void Listar(object elemento)
+        {
+            if (elemento.GetType() == typeof(Proveedor))
+            {
+                foreach (var item in listaProveedores)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+            else if (elemento.GetType() == typeof(Articulo))
+            {
+                foreach (var item in listaArticulos)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+            else if (elemento.GetType() == typeof(Cliente))
+            {
+                foreach (var item in listaClientes)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+            else if (elemento.GetType() == typeof(Entrada))
+            {
+                foreach (var item in listaEntradas)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+            else if (elemento.GetType() == typeof(Salida))
+            {
+                foreach (var item in listaSalidas)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+            else if (elemento.GetType() == typeof(Venta))
+            {
+                foreach (var item in listaVentas)
+                {
+                    WriteLine(item.ToString());
+                }
+            }
+
         }
     }
 }

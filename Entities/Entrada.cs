@@ -20,6 +20,10 @@ namespace libPiky.Entities
             Cantidad = cantidad;
             IdArticulo = idArticulo;
         }
+        public override string ToString()
+        {
+            return $"{{\"Id\": \"{this.IdEntrada}\", \"Valor Unidad\": \"{this.ValorUnidad}\", \"Fecha\": \"{this.Fecha}\", \"Cantidad\": \"{this.Cantidad}\", \"ID Articulo\": \"{this.IdArticulo}\"}}";
+        }
 
     }
 }

@@ -6,5 +6,6 @@ namespace libPiky.Interfaces
         void Modificar(object Elemento);
         void Eliminar(object Elemento);
         object Consultar(object elemento, int id);
+        void Listar(object Elemento);
     }
 }
