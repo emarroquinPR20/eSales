@@ -74,7 +74,7 @@ namespace libPiky.Menu
                     WriteLine("2. Modificar ");
                     WriteLine("3. Eliminar ");
                     WriteLine("4. Consultar ");
-                    WriteLine("5. Listar ")
+                    WriteLine("5. Listar ");
                     WriteLine("Ingrese opción");
                     string opcionElegida = ReadLine();
                     opcion = Convert.ToByte(opcionElegida);
