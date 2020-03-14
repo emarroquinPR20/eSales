@@ -100,6 +100,7 @@ namespace libPiky.Menu
                             break;
                         case 5:
                             ListarObjeto(tipoObjeto);
+                            PrecionarEnter();
                             break;
                         default:
                             WriteLine("No existe la Opción");
