@@ -1,4 +1,5 @@
 ﻿using System;
+using libPiky.Menu;
 
 namespace libPiky
 {
@@ -6,7 +7,9 @@ namespace libPiky
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+            MenuPrincipal mp = new MenuPrincipal();
+            mp.MostrarMenu();
         }
     }
 }

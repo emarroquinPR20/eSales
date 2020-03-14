@@ -68,11 +68,12 @@ namespace libPiky.Menu
                 do
                 {
                     Clear();
-                    WriteTiTle("Administración Libreria");
-                    WriteLine($"1. Agregar {tipoObjeto}");
-                    WriteLine($"2. Modificar {tipoObjeto}");
-                    WriteLine($"3. Eliminar {tipoObjeto}");
-                    WriteLine($"4. Consultar {tipoObjeto}");
+                    WriteTiTle($"Administración Libreria {tipoObjeto}");
+                    WriteLine("0. Salir");
+                    WriteLine("1. Agregar ");
+                    WriteLine("2. Modificar ");
+                    WriteLine("3. Eliminar ");
+                    WriteLine("4. Consultar ");
                     WriteLine("Ingrese opción");
                     string opcionElegida = ReadLine();
                     opcion = Convert.ToByte(opcionElegida);
@@ -82,18 +83,23 @@ namespace libPiky.Menu
                             break;
                         case 1:
                             AgregarObjeto(tipoObjeto);
+                            PrecionarEnter();
                             break;
                         case 2:
                             ModificarObjeto(tipoObjeto);
+                            PrecionarEnter();
                             break;
                         case 3:
                             ElimnarObjeto(tipoObjeto);
+                            PrecionarEnter();
                             break;
                         case 4:
                             ConsultarObjeto(tipoObjeto);
+                            PrecionarEnter();
                             break;
                         default:
                             WriteLine("No existe la Opción");
+                            PrecionarEnter();
                             break;
                     }
 
@@ -216,6 +222,8 @@ namespace libPiky.Menu
         }
         private void ElimnarObjeto(string tipoObjeto)
         {
+            Clear();
+            WriteTiTle("Administración Libreria ");
             WriteLine($"Ingrese el ID de {tipoObjeto} a Eliminar :");
             int ideliminar = Convert.ToInt16(ReadLine());
             if (tipoObjeto.Equals("Proveedor"))
@@ -257,6 +265,8 @@ namespace libPiky.Menu
         }
         public void ConsultarObjeto(string tipoObjeto)
         {
+            Clear();
+            WriteTiTle("Administración Libreria ");
             WriteLine($"Ingrese el ID de {tipoObjeto} a Consultar :");
             int ideliminar = Convert.ToInt16(ReadLine());
             if (tipoObjeto.Equals("Proveedor"))
