@@ -42,6 +42,10 @@ namespace libPiky.Controllers
                 this.listaVentas.Add((Venta)elemento);
             }
         }
+        public void Modificar()
+        {
+            
+        }
         public void Modificar(object elemento)
         {
 
@@ -72,6 +76,11 @@ namespace libPiky.Controllers
             {
                 this.listaVentas.Remove((Venta)elemento);
             }
+        }
+        public object Consultar(int id)
+        {
+            object r = new object();
+            return r;
         }
         public object Consultar(object elemento, int id)
         {

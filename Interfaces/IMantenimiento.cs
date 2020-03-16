@@ -3,9 +3,9 @@ namespace libPiky.Interfaces
     public interface IMantenimiento
     {
         void Ingresar(object Elemento);
-        void Modificar(object Elemento);
+        void Modificar();
         void Eliminar(object Elemento);
-        object Consultar(object elemento, int id);
+        object Consultar(int id);
         void Listar(object Elemento);
     }
 }
