@@ -35,7 +35,7 @@ namespace libPiky.Controllers
             }
             return resultado;
         }
-        public void Listar(object elemento)
+        public void Listar()
         {
             foreach (var item in listaSalidas)
             {

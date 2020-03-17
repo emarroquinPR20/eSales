@@ -6,7 +6,7 @@ using libPiky.Interfaces;
 
 namespace libPiky.Controllers
 {
-    public class CobtrollerEntrada : IMantenimiento
+    public class ControllerEntrada : IMantenimiento
     {
         
         private List<Entrada> listaEntradas = new List<Entrada>();
@@ -35,7 +35,7 @@ namespace libPiky.Controllers
             }
             return resultado;
         }
-        public void Listar(object elemento)
+        public void Listar()
         {
             foreach (var item in listaEntradas)
             {

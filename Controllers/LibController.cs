@@ -153,6 +153,9 @@ namespace libPiky.Controllers
             }
             return resultado;
         }
+        public void Listar()
+        {            
+        }
         public void Listar(object elemento)
         {
             if (elemento.GetType() == typeof(Proveedor))

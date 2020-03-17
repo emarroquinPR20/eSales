@@ -9,7 +9,12 @@ namespace libPiky.Menu
 {
     public class MenuPrincipal
     {
-        private LibController controller = new LibController();
+        private ControllerProveedor cProveedor = new ControllerProveedor();
+        private ControllerArticulo cArticulo = new ControllerArticulo();
+        private ControllerCliente cCliente = new ControllerCliente();
+        private ControllerEntrada cEntrada = new ControllerEntrada();
+        private ControllerSalida cSalida = new ControllerSalida();
+        private ControllerVenta cVenta = new ControllerVenta();
         public void MostrarMenu()
         {
             try
@@ -135,7 +140,7 @@ namespace libPiky.Menu
                 WriteLine("Telefóno :");
                 string telefono = ReadLine();
                 Proveedor nProveedor = new Proveedor(id, nombre, documento, direccion, correo, telefono);
-                controller.Ingresar(nProveedor);
+                cProveedor.Ingresar(nProveedor);
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
@@ -152,7 +157,7 @@ namespace libPiky.Menu
                 WriteLine("Stock :");
                 int stock = Convert.ToInt16(ReadLine());
                 Articulo nArticulo = new Articulo(id, nombre, marca, referencia, idproveedor, stock);
-                controller.Ingresar(nArticulo);
+                cArticulo.Ingresar(nArticulo);
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
@@ -169,7 +174,7 @@ namespace libPiky.Menu
                 WriteLine("Telefóno :");
                 string telefono = ReadLine();
                 Cliente nCliente = new Cliente(id, nombre, documento, direccion, correo, telefono);
-                controller.Ingresar(nCliente);
+                cCliente.Ingresar(nCliente);
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
@@ -184,7 +189,7 @@ namespace libPiky.Menu
                 WriteLine("ID Articulo");
                 int idarticulo = Convert.ToInt16(ReadLine());
                 Entrada nEntrada = new Entrada(id, valorunidad, fecha, cantidad, idarticulo);
-                controller.Ingresar(nEntrada);
+                cEntrada.Ingresar(nEntrada);
             }
             else if (tipoObjeto.Equals("Salida"))
             {
@@ -199,7 +204,7 @@ namespace libPiky.Menu
                 WriteLine("ID Articulo");
                 int idarticulo = Convert.ToInt16(ReadLine());
                 Salida nSalida = new Salida(id, valorunidad, fecha, cantidad, idarticulo);
-                controller.Ingresar(nSalida);
+                cSalida.Ingresar(nSalida);
             }
             else if (tipoObjeto.Equals("Venta"))
             {
@@ -218,7 +223,7 @@ namespace libPiky.Menu
                 WriteLine("ID Cliente");
                 int idcliente = Convert.ToInt16(ReadLine());
                 Venta nVenta = new Venta(id, documento, idarticulo, fecha, cantidad, valorunidad, idcliente);
-                controller.Ingresar(nVenta);
+                cVenta.Ingresar(nVenta);
             }
         }
         private void ModificarObjeto(string tipoObjeto)
@@ -233,39 +238,33 @@ namespace libPiky.Menu
             int ideliminar = Convert.ToInt16(ReadLine());
             if (tipoObjeto.Equals("Proveedor"))
             {
-                object objeto = new Proveedor();
-                Proveedor eProveedor = (Proveedor)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eProveedor);
+                Proveedor eProveedor = (Proveedor)cProveedor.Consultar(ideliminar);
+                cProveedor.Eliminar(eProveedor);
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
-                object objeto = new Articulo();
-                Articulo eArticulo = (Articulo)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eArticulo);
+                Articulo eArticulo = (Articulo)cArticulo.Consultar(ideliminar);
+                cArticulo.Eliminar(eArticulo);
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
-                object objeto = new Cliente();
-                Cliente eCliente = (Cliente)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eCliente);
+                Cliente eCliente = (Cliente)cCliente.Consultar(ideliminar);
+                cCliente.Eliminar(eCliente);
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
-                object objeto = new Entrada();
-                Entrada eEntrada = (Entrada)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eEntrada);
+                Entrada eEntrada = (Entrada)cEntrada.Consultar(ideliminar);
+                cEntrada.Eliminar(eEntrada);
             }
             else if (tipoObjeto.Equals("Salida"))
             {
-                object objeto = new Salida();
-                Salida eSalida = (Salida)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eSalida);
+                Salida eSalida = (Salida)cSalida.Consultar(ideliminar);
+                cSalida.Eliminar(eSalida);
             }
             else if (tipoObjeto.Equals("Venta"))
             {
-                object objeto = new Venta();
-                Venta eVenta = (Venta)controller.Consultar(objeto,ideliminar);
-                controller.Eliminar(eVenta);
+                Venta eVenta = (Venta)cVenta.Consultar(ideliminar);
+                cVenta.Eliminar(eVenta);
             }
         }
         public void ConsultarObjeto(string tipoObjeto)
@@ -273,42 +272,36 @@ namespace libPiky.Menu
             Clear();
             WriteTiTle("Administración Libreria ");
             WriteLine($"Ingrese el ID de {tipoObjeto} a Consultar :");
-            int ideliminar = Convert.ToInt16(ReadLine());
+            int idconsultar = Convert.ToInt16(ReadLine());
             if (tipoObjeto.Equals("Proveedor"))
             {
-                object objeto = new Proveedor();
-                Proveedor cProveedor = (Proveedor)controller.Consultar(objeto,ideliminar);
-                WriteLine(cProveedor.ToString());
+                Proveedor elemento = (Proveedor)cProveedor.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
-                object objeto = new Articulo();
-                Articulo cArticulo = (Articulo)controller.Consultar(objeto,ideliminar);
-                WriteLine(cArticulo.ToString());
+                Articulo elemento = (Articulo)cArticulo.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
-                object objeto = new Cliente();
-                Cliente cCliente = (Cliente)controller.Consultar(objeto,ideliminar);
-                WriteLine(cCliente.ToString());
+                Cliente elemento = (Cliente)cCliente.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
-                object objeto = new Entrada();
-                Entrada cEntrada = (Entrada)controller.Consultar(objeto,ideliminar);
-                WriteLine(cEntrada.ToString());
+                Entrada elemento = (Entrada)cEntrada.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
             else if (tipoObjeto.Equals("Salida"))
             {
-                object objeto = new Salida();
-                Salida cSalida = (Salida)controller.Consultar(objeto,ideliminar);
-                WriteLine(cSalida.ToString());
+                Salida elemento = (Salida)cSalida.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
             else if (tipoObjeto.Equals("Venta"))
             {
-                object objeto = new Venta();
-                Venta cVenta = (Venta)controller.Consultar(objeto,ideliminar);
-                WriteLine(cVenta.ToString());
+                Venta elemento = (Venta)cVenta.Consultar(idconsultar);
+                WriteLine(elemento.ToString());
             }
         }
         public void ListarObjeto(string tipoObjeto)
@@ -318,33 +311,27 @@ namespace libPiky.Menu
             WriteLine($"Listado de {tipoObjeto} :");
             if (tipoObjeto.Equals("Proveedor"))
             {
-                object objeto = new Proveedor();
-                controller.Listar(objeto);
+                cProveedor.Listar();
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
-                object objeto = new Articulo();
-                controller.Listar(objeto);
+                cArticulo.Listar();
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
-                object objeto = new Cliente();
-                controller.Listar(objeto);
+                cCliente.Listar();
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
-                object objeto = new Entrada();
-                controller.Listar(objeto);
+                cEntrada.Listar();
             }
             else if (tipoObjeto.Equals("Salida"))
             {
-                object objeto = new Salida();
-                controller.Listar(objeto);
+                cSalida.Listar();
             }
             else if (tipoObjeto.Equals("Venta"))
             {
-                object objeto = new Venta();
-                controller.Listar(objeto);
+                cVenta.Listar();
             }
         }
     }
