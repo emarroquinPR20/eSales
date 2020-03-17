@@ -1,8 +1,9 @@
+using System;
 namespace libPiky.Entities
 {
     public class Entrada
     {
-        public int IdEntrada { get; set; }
+        public string IdEntrada { get; set; }
         public double ValorUnidad { get; set; }
         public string Fecha { get; set; }
         public int Cantidad { get; set; }
@@ -10,16 +11,23 @@ namespace libPiky.Entities
 
         public Entrada()
         {
-
+            IdEntrada =GeneraId();
         }
-        public Entrada(int idEntrada, double valorUnidad, string fecha, int cantidad, int idArticulo)
+        public Entrada(double valorUnidad, string fecha, int cantidad, int idArticulo)
         {
-            IdEntrada = idEntrada;
+            IdEntrada = GeneraId();
             ValorUnidad = valorUnidad;
             Fecha = fecha;
             Cantidad = cantidad;
             IdArticulo = idArticulo;
         }
+
+        private string GeneraId()
+        {
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();
+        }
+
         public override string ToString()
         {
             return $"{{\"Id\": \"{this.IdEntrada}\", \"Valor Unidad\": \"{this.ValorUnidad}\", \"Fecha\": \"{this.Fecha}\", \"Cantidad\": \"{this.Cantidad}\", \"ID Articulo\": \"{this.IdArticulo}\"}}";

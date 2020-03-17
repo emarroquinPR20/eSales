@@ -22,12 +22,12 @@ namespace libPiky.Controllers
         {
             this.listaVentas.Remove((Venta)elemento);
         }
-        public object Consultar(int id)
+        public object Consultar(string id)
         {
             object resultado = new object();
             foreach (var item in listaVentas)
             {
-                if (item.IdVenta == id)
+                if (item.IdVenta.Equals(id))
                 {
                     resultado = item;
                     break;

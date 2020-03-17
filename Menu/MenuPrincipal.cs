@@ -127,8 +127,6 @@ namespace libPiky.Menu
             WriteTiTle($"Ingrese Informacíon de {tipoObjeto}");
             if (tipoObjeto.Equals("Proveedor"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("Nombre :");
                 string nombre = ReadLine();
                 WriteLine("Documento :");
@@ -139,13 +137,11 @@ namespace libPiky.Menu
                 string correo = ReadLine();
                 WriteLine("Telefóno :");
                 string telefono = ReadLine();
-                Proveedor nProveedor = new Proveedor(id, nombre, documento, direccion, correo, telefono);
+                Proveedor nProveedor = new Proveedor(nombre, documento, direccion, correo, telefono);
                 cProveedor.Ingresar(nProveedor);
             }
             else if (tipoObjeto.Equals("Articulo"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("Nombre :");
                 string nombre = ReadLine();
                 WriteLine("Marca :");
@@ -156,13 +152,11 @@ namespace libPiky.Menu
                 int idproveedor = Convert.ToInt16(ReadLine());
                 WriteLine("Stock :");
                 int stock = Convert.ToInt16(ReadLine());
-                Articulo nArticulo = new Articulo(id, nombre, marca, referencia, idproveedor, stock);
+                Articulo nArticulo = new Articulo(nombre, marca, referencia, idproveedor, stock);
                 cArticulo.Ingresar(nArticulo);
             }
             else if (tipoObjeto.Equals("Cliente"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("Nombre :");
                 string nombre = ReadLine();
                 WriteLine("Documento :");
@@ -173,13 +167,11 @@ namespace libPiky.Menu
                 string correo = ReadLine();
                 WriteLine("Telefóno :");
                 string telefono = ReadLine();
-                Cliente nCliente = new Cliente(id, nombre, documento, direccion, correo, telefono);
+                Cliente nCliente = new Cliente(nombre, documento, direccion, correo, telefono);
                 cCliente.Ingresar(nCliente);
             }
             else if (tipoObjeto.Equals("Entrada"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("Valor de Unidad :");
                 double valorunidad = Convert.ToDouble(ReadLine());
                 WriteLine("Fecha");
@@ -188,13 +180,11 @@ namespace libPiky.Menu
                 int cantidad = Convert.ToInt16(ReadLine());
                 WriteLine("ID Articulo");
                 int idarticulo = Convert.ToInt16(ReadLine());
-                Entrada nEntrada = new Entrada(id, valorunidad, fecha, cantidad, idarticulo);
+                Entrada nEntrada = new Entrada(valorunidad, fecha, cantidad, idarticulo);
                 cEntrada.Ingresar(nEntrada);
             }
             else if (tipoObjeto.Equals("Salida"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("Valor de Unidad :");
                 double valorunidad = Convert.ToDouble(ReadLine());
                 WriteLine("Fecha");
@@ -203,13 +193,11 @@ namespace libPiky.Menu
                 int cantidad = Convert.ToInt16(ReadLine());
                 WriteLine("ID Articulo");
                 int idarticulo = Convert.ToInt16(ReadLine());
-                Salida nSalida = new Salida(id, valorunidad, fecha, cantidad, idarticulo);
+                Salida nSalida = new Salida(valorunidad, fecha, cantidad, idarticulo);
                 cSalida.Ingresar(nSalida);
             }
             else if (tipoObjeto.Equals("Venta"))
             {
-                WriteLine("ID :");
-                int id = Convert.ToInt16(ReadLine());
                 WriteLine("ID Documento");
                 string documento = ReadLine();
                 WriteLine("ID Articulo");
@@ -222,7 +210,7 @@ namespace libPiky.Menu
                 double valorunidad = Convert.ToDouble(ReadLine());
                 WriteLine("ID Cliente");
                 int idcliente = Convert.ToInt16(ReadLine());
-                Venta nVenta = new Venta(id, documento, idarticulo, fecha, cantidad, valorunidad, idcliente);
+                Venta nVenta = new Venta(documento, idarticulo, fecha, cantidad, valorunidad, idcliente);
                 cVenta.Ingresar(nVenta);
             }
         }
@@ -235,7 +223,7 @@ namespace libPiky.Menu
             Clear();
             WriteTiTle("Administración Libreria ");
             WriteLine($"Ingrese el ID de {tipoObjeto} a Eliminar :");
-            int ideliminar = Convert.ToInt16(ReadLine());
+            string ideliminar = ReadLine();
             if (tipoObjeto.Equals("Proveedor"))
             {
                 Proveedor eProveedor = (Proveedor)cProveedor.Consultar(ideliminar);
@@ -272,7 +260,7 @@ namespace libPiky.Menu
             Clear();
             WriteTiTle("Administración Libreria ");
             WriteLine($"Ingrese el ID de {tipoObjeto} a Consultar :");
-            int idconsultar = Convert.ToInt16(ReadLine());
+            string idconsultar = ReadLine();
             if (tipoObjeto.Equals("Proveedor"))
             {
                 Proveedor elemento = (Proveedor)cProveedor.Consultar(idconsultar);

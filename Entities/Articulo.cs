@@ -1,9 +1,10 @@
+using System;
 namespace libPiky.Entities
 {
     public class Articulo
     {
 
-        public int IdArticulo { get; set; }
+        public string IdArticulo { get; set; }
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public string Referencia { get; set; }
@@ -12,16 +13,22 @@ namespace libPiky.Entities
 
         public Articulo()
         {
-
+            this.IdArticulo = GeneraId();
         }
-        public Articulo(int idArticulo, string nombre, string marca, string referencia, int idProveedor, int stock)
+        public Articulo(string nombre, string marca, string referencia, int idProveedor, int stock)
         {
-            IdArticulo = idArticulo;
+            IdArticulo = GeneraId();
             Nombre = nombre;
             Marca = marca;
             Referencia = referencia;
             IdProveedor = idProveedor;
             Stock = stock;
+        }
+
+        private string GeneraId()
+        {
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();
         }
 
         public override string ToString()

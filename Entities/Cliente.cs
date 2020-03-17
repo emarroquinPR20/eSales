@@ -1,8 +1,9 @@
+using System;
 namespace libPiky.Entities
 {
     public class Cliente
     {
-        public int IdCliente { get; set; }
+        public string IdCliente { get; set; }
         public string Nombre { get; set; }
         public string Documento { get; set; }
         public string Direccion { get; set; }
@@ -11,18 +12,25 @@ namespace libPiky.Entities
 
         public Cliente()
         {
-
+            IdCliente = GeneraId();
         }
 
-        public Cliente(int idCliente, string nombre, string documento, string direccion, string correo, string telefono)
+        public Cliente(string nombre, string documento, string direccion, string correo, string telefono)
         {
-            IdCliente = idCliente;
+            IdCliente = GeneraId();
             Nombre = nombre;
             Documento = documento;
             Direccion = direccion;
             Correo = correo;
             Telefono = telefono;
         }
+
+        private string GeneraId()
+        {
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();
+        }
+
         public override string ToString()
         {
             return $"{{\"Id\": \"{this.IdCliente}\", \"Nombre\": \"{this.Nombre}\", \"Documento\": \"{this.Documento}\", \"Dirección\": \"{this.Direccion}\", \"Correo\": \"{this.Correo}\", \"Telefóno\": \"{this.Telefono}\"}}";
