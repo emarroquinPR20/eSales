@@ -17,7 +17,7 @@ namespace libPiky.Util
         }
         public static void PrecionarEnter()
         {
-            WriteLine("Precione Enter Para Continuar");
+            WriteLine("Precione Enter Para Continuar...");
             ReadLine();
         }
     }

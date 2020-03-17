@@ -1,21 +1,21 @@
 using System;
-namespace libPiky.Entities
+namespace com.Libreria.coreV1.Entities
 {
     public class Venta
     {
         public string IdVenta { get; set; }
         public string Documento { get; set; }
-        public int IdArticulo { get; set; }
+        public string IdArticulo { get; set; }
         public string Fecha { get; set; }
         public int Cantidad { get; set; }
         public double ValorUnidad { get; set; }
-        public int IdCliente { get; set; }
+        public string IdCliente { get; set; }
 
         public Venta()
         {
             IdVenta = GeneraId();
         }
-        public Venta(string documento, int idArticulo, string fecha, int cantidad, double valorUnidad, int idCliente)
+        public Venta(string documento, string idArticulo, string fecha, int cantidad, double valorUnidad, string idCliente)
         {
             IdVenta = GeneraId();
             Documento = documento;

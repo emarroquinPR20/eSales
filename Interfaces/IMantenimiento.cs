@@ -1,4 +1,4 @@
-namespace libPiky.Interfaces
+namespace com.Libreria.coreV1.Interfaces
 {
     public interface IMantenimiento
     {

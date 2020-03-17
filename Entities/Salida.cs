@@ -1,5 +1,5 @@
 using System;
-namespace libPiky.Entities
+namespace com.Libreria.coreV1.Entities
 {
     public class Salida
     {

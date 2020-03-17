@@ -1,10 +1,11 @@
 using System;
 using static System.Console;
 using System.Collections.Generic;
-using libPiky.Entities;
-using libPiky.Interfaces;
 
-namespace libPiky.Controllers
+using com.Libreria.coreV1.Entities;
+using com.Libreria.coreV1.Interfaces;
+
+namespace com.Libreria.coreV1.Controllers
 {
     public class ControllerArticulo : IMantenimiento
     {

@@ -1,5 +1,5 @@
 using System;
-namespace libPiky.Entities
+namespace com.Libreria.coreV1.Entities
 {
     public class Articulo
     {
@@ -8,14 +8,14 @@ namespace libPiky.Entities
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public string Referencia { get; set; }
-        public int IdProveedor { get; set; }
+        public string IdProveedor { get; set; }
         public int Stock { get; set; }
 
         public Articulo()
         {
             this.IdArticulo = GeneraId();
         }
-        public Articulo(string nombre, string marca, string referencia, int idProveedor, int stock)
+        public Articulo(string nombre, string marca, string referencia, string idProveedor, int stock)
         {
             IdArticulo = GeneraId();
             Nombre = nombre;
